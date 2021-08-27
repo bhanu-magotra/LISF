@@ -409,7 +409,7 @@ contains
 
   ! Read-in and spatially reproject U-wind:
     if( forcopts%read_uwind ) then
-      ios = nf90_inq_varid( nid, "Uwind_"//forcopts%stat_uwind, varid )
+      ios = nf90_inq_varid( nid, "Wind_E_"//forcopts%stat_uwind, varid )
       call LIS_verify(ios,'Error in nf90_inq_varid in metForcGen_Variables_read')
       forcopts%index_uwind = varid - 3    ! Subtract off lat,lon,time id nums
 
@@ -425,7 +425,7 @@ contains
 
   ! Read-in and spatially reproject V-wind:
     if( forcopts%read_vwind ) then
-      ios = nf90_inq_varid( nid, "Vwind_"//forcopts%stat_vwind, varid )
+      ios = nf90_inq_varid( nid, "Wind_N_"//forcopts%stat_vwind, varid )
       call LIS_verify(ios,'Error in nf90_inq_varid in metForcGen_Variables_read')
       forcopts%index_vwind = varid - 3    ! Subtract off lat,lon,time id nums
 
